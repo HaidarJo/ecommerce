@@ -12,6 +12,9 @@ class c_cart extends CI_Controller
         $this->load->model('m_cart');
         $this->load->model('m_produk');
         $this->load->model('m_home');
+        if (!$this->session->userdata('id_pembeli')) {
+            redirect(base_url('Auth/'));
+        }
     }
 
 

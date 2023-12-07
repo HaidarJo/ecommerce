@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Tagihan</title>
+    <title>Pembayaran</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -35,7 +35,7 @@
 </head>
 
 
-<body>
+<body class="animsition">
 
     <!-- Header -->
     <header class="header-v4">
@@ -280,7 +280,6 @@
                         </div>
                     <?php endforeach ?>
 
-
                     <div class="header-cart-buttons flex-w w-full">
                         <a href="<?= base_url('c_cart/index') ?>" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
                             Lihat Keranjang
@@ -301,80 +300,109 @@
             <div class="row">
                 <div class="col-sm-10 col-lg-7 col-xl-20 m-lr-auto m-b-50">
                     <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-                        <!-- <?php foreach ($cart as $key) : ?>
+                        <form action="<?= base_url('c_payment/'); ?>" method="post">
+                            <!-- <?php foreach ($cart as $key) : ?>
                                 <input type="hidden" name="total" value="<?php $total ?>">
                             <?php endforeach ?> -->
-                        <h4 class="mtext-109 cl2 p-b-30">
-                            Tagihan
-                        </h4>
-                        <div class="flex-w flex-t bor12 ">
-                        </div>
+                            <h4 class="mtext-109 cl2 p-b-30">
+                                Bayar Tagihan
+                            </h4>
+                            <div class="flex-w flex-t bor12 ">
+                            </div>
 
-                        <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-                            <div class="size-208 w-full-ssm">
-                                <span class="stext-110 cl2">
-                                    Pengiriman:
-                                </span>
+                            <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                                <div class="size-208 w-full-ssm">
+                                    <span class="stext-110 cl2">
+                                        ID Tagihan:
+                                    </span>
+                                </div>
+
+                                <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
+                                    <p class="stext-111 cl6 p-t-2">
+                                        <span class="stext-112 cl8">
+                                            <?php $counter = 0; ?>
+                                            <?php foreach ($tagihan as $id) :  ?>
+                                                <?php echo $id['id_tagihan'] ?> <?php $counter++; ?> <?php if ($counter >= 1) break; ?>
+                                            <?php endforeach ?>
+                                        </span>
+
+                                    </p>
+
+
+                                </div>
+                            </div>
+
+                            <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                                <div class="size-208">
+                                    <span class="stext-110 cl2">
+                                        Nama Bank:
+                                    </span>
+                                </div>
+
+                                <div class="size-208">
+                                    <span class="stext-112 cl8">
+                                        BCA
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                                <div class="size-208">
+                                    <span class="stext-110 cl2">
+                                        Penerima:
+                                    </span>
+                                </div>
+
+                                <div class="size-208">
+                                    <span class="stext-112 cl8">
+                                        Pasar Seni Sukawati
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                                <div class="size-208">
+                                    <span class="stext-110 cl2">
+                                        Nomor Rekening:
+                                    </span>
+                                </div>
+
+                                <div class="size-208">
+                                    <span class="stext-110 cl2">
+                                        772456123
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="flex-w flex-t p-t-27 p-b-33">
+                                <div class="size-208">
+                                    <span class="mtext-101 cl2">
+                                        Total:
+                                    </span>
+                                </div>
+
+                                <div class="size-209 p-t-1">
+                                    <span class="mtext-110 cl2">
+                                        Rp<?php echo number_format($total) ?>
+                                    </span>
+                                </div>
                             </div>
 
                             <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
                                 <p class="stext-111 cl6 p-t-2">
                                     <span class="stext-112 cl8">
-                                        <?php echo $hasil->rajaongkir->query->courier ?><br>
                                     </span>
-                                    <?php
-                                    $counter = 0; ?>
-                                    <?php foreach ($hasil->rajaongkir->results[0]->costs as $ongkir) : ?> Rp<?php echo number_format($biaya = $ongkir->cost[0]->value) ?> ( <?php echo $ongkir->cost[0]->etd ?> Hari) <?php $counter++; ?> <?php if ($counter >= 1) break; ?> <?php endforeach ?>
                                 </p>
-                                <!-- <p class="stext-111 cl6 p-t-2">
-                                        <?php ob_start();
-                                        $counter = 0; ?>
-                                        <?php foreach ($hasil->rajaongkir->results[0]->costs as $ongkir) : ?> Rp<?php echo number_format($ongkir->cost[0]->value) ?> ( <?php echo $ongkir->cost[0]->etd ?> Hari) <?php $counter++; ?> <?php if ($counter >= 1) break; ?> <?php endforeach ?> <?php $result = ob_get_clean(); ?>
-                                    </p> -->
-
-
+                                <p class="stext-111 cl6 p-t-2">
+                                    *Note : safakfh shaghas yadsfa hafd
+                                </p>
                             </div>
-                        </div>
+                            <br>
+                            <br>
 
-                        <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-                            <div class="size-208">
-                                <span class="stext-110 cl2">
-                                    Produk Pesanan:
-                                </span>
-                            </div>
-
-                            <div class="size-209">
-                                <?php foreach ($cart as $key) : ?>
-                                    <p class="stext-111 cl6 p-t-2"><?php echo $key['nama_produk'] ?>.......... <?php echo $key['total'] ?> x <?php echo number_format(($key['harga']), 0, ',', ','); ?></p>
-                                    <br>
-                                <?php endforeach ?>
-                                <span class="stext-112 cl8">
-                                    <?php foreach ($total_harga as $key) : ?>
-                                        Subtotal Produk: Rp <?php echo number_format($key['total'], 0, ',', ','); ?>
-                                    <?php endforeach ?>
-                                </span>
-
-                            </div>
-                        </div>
-
-                        <div class="flex-w flex-t p-t-27 p-b-33">
-                            <div class="size-208">
-                                <span class="mtext-101 cl2">
-                                    Total:
-                                </span>
-                            </div>
-
-                            <div class="size-209 p-t-1">
-                                <span class="mtext-110 cl2">
-                                    <?php foreach ($total_harga as $key) : ?>Rp <?php echo number_format($total = ($key['total'] + $biaya)) ?>
-                                <?php endforeach ?>
-                                </span>
-                            </div>
-
-                        </div>
-                        <form action="<?= base_url('c_payment/payment'); ?>" method="post">
-                            <input type="hidden" name="total" value="<?php echo $total ?>">
-                            <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" type="submit" name="pilih">Bayar</button>
+                            <button class="flex-c-m stext-101 cl0 size-116 bg1 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                                Upload Bukti Pembayaran
+                            </button>
                         </form>
 
                     </div>
@@ -382,6 +410,10 @@
             </div>
         </div>
     </div>
+    <!-- ----------------------------------------------------------------------------------- -->
+
+    <!-- ----------------------------------------------------------------------------------- -->
+
 
 
 

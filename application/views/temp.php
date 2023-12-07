@@ -204,3 +204,26 @@ if ($err) {
 } else {
     echo $response;
 }
+
+
+<?php if ($this->session->flashdata('success')) { ?>
+    <div class="alert" role="alert">
+        <?php echo $this->session->flashdata('success'); ?>
+    </div>
+<?php } ?>
+<h1>Form Pembayaran</h1>
+<?php echo form_open_multipart('c_payment/save_payment'); ?>
+<div class="form-group">
+    <label for="tgl_pembayaran">Tanggal dan Jam Pembayaran</label>
+    <input type="datetime-local" id="tgl_pembayaran" name="tgl_pembayaran" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="id_tagihan">ID Tagihan</label>
+    <input type="text" id="id_tagihan" name="id_tagihan" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="bukti_pembayaran">Bukti Pembayaran</label>
+    <input type="file" id="bukti_pembayaran" name="bukti_pembayaran" class="form-control" required>
+</div>
+<input type="submit" value="Simpan" class="btn btn-primary">
+<?php echo form_close(); ?>

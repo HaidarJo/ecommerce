@@ -261,7 +261,7 @@
                                 </a>
 
                                 <span class="header-cart-item-info">
-                                    1 x Rp<?php echo $key['harga'] ?>
+                                    <?php echo $key['total'] ?> x Rp<?php echo number_format($key['harga']) ?>
                                 </span>
                             </div>
                         </li>
@@ -272,23 +272,9 @@
                 <div class="w-full">
                     <?php foreach ($total_harga as $key) : ?>
                         <div class="header-cart-total w-full p-tb-40">
-                            Total: Rp<?php echo $key['total'] ?>
+                            Total: Rp<?php echo number_format($key['total']) ?>
                         </div>
                     <?php endforeach ?>
-
-                    <!-- <div class="flex-w flex-t bor12 p-b-13">
-						<div class="size-208">
-							<span class="stext-110 cl2">
-								Biaya Pengiriman:
-							</span>
-						</div>
-
-						<div class="size-209">
-							<span class="mtext-110 cl2">
-								Rp<?php echo (50000) ?> 
-							</span>
-						</div>
-					</div> -->
 
                     <div class="header-cart-buttons flex-w w-full">
                         <a href="<?= base_url('c_cart/index') ?>" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
@@ -409,56 +395,13 @@
                                 <div class="size-209">
                                     <br>
                                     <br>
-                                    <span class="mtext-110 cl2">
-                                        Rp<?php echo number_format(50000, 0, ',', ','); ?>
+                                    <span class="stext-111 cl6 p-t-2">
+
+                                        Tidak ada jasa pengiriman yang tersedia. Mohon lengkapi <a class="stext-111 cl2 p-t-2" href="<?= base_url('c_order/index'); ?>">alamat</a> anda.
+                                        <!-- Rp<?php echo number_format(50000, 0, ',', ','); ?> -->
                                     </span>
                                 </div>
                             </div>
-
-                            <!-- <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-                            <div class="size-208 w-full-ssm">
-                                <span class="stext-110 cl2">
-                                    Shipping:
-                                </span>
-                            </div>
-
-                            <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-                                <p class="stext-111 cl6 p-t-2">
-                                    There are no shipping methods available. Please double check your address, or contact us if you need any help.
-                                </p>
-
-                                <div class="p-t-15">
-                                    <span class="stext-112 cl8">
-                                        Calculate Shipping
-                                    </span>
-
-                                    <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                                        <select class="js-select2" name="time">
-                                            <option>Select a country...</option>
-                                            <option>USA</option>
-                                            <option>UK</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-
-                                    <div class="bor8 bg0 m-b-12">
-                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="State /  country">
-                                    </div>
-
-                                    <div class="bor8 bg0 m-b-22">
-                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
-                                    </div>
-
-                                    <div class="flex-w">
-                                        <div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-                                            Update Totals
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div> -->
-
                             <div class="flex-w flex-t p-t-27 p-b-33">
                                 <div class="size-208">
                                     <span class="mtext-101 cl2">
@@ -468,14 +411,15 @@
 
                                 <div class="size-209 p-t-1">
                                     <span class="mtext-110 cl2">
-                                        Rp<?php echo number_format(50000 + $key['total'], 0, ',', ','); ?>
+                                        Rp<?php echo number_format($key['total'], 0, ',', ','); ?>
                                     </span>
                                 </div>
                             </div>
 
-                            <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                            <a href="<?= base_url('c_order/') ?>" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                                 Bayar
-                            </button>
+                            </a>
+
                         </div>
                     </div>
                 <?php endforeach ?>

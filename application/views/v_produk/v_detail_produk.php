@@ -213,7 +213,7 @@
 									<?php echo $key['nama_produk'] ?>
 								</a>
 								<span class="header-cart-item-info">
-									1 x Rp<?php echo $key['harga'] ?>,00
+									<?php echo $key['total'] ?> x Rp<?php echo number_format($key['harga']) ?>
 								</span>
 								<button class="js-hapus flex-c-m stext-100 cl0 size-100 bg5 bor2 hov-btn1 p-lr-15 trans-04 lebar" data-id-keranjang="<?php echo $key['id_keranjang'] ?>">Hapus</button>
 							</div>
@@ -225,7 +225,7 @@
 				<div class="w-full">
 					<?php foreach ($total_harga as $key) : ?>
 						<div class="header-cart-total w-full p-tb-40">
-							Total: Rp<?php echo $key['total'] ?>,00
+							Total: Rp<?php echo number_format($key['total']) ?>
 						</div>
 					<?php endforeach ?>
 

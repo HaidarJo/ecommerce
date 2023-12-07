@@ -338,7 +338,7 @@
                                         </span>
 
                                         <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                                            <select class="js-select2" name="provinsi">
+                                            <select class="js-select2" name="provinsi" required>
                                                 <option>Pilih Provinsi</option>
                                                 <?php if ($provinsi) : ?>
                                                     <?php foreach ($provinsi->rajaongkir->results as $prov) : ?>
@@ -350,7 +350,7 @@
                                         </div>
 
                                         <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                                            <select class="js-select2" name="kabupaten">
+                                            <select class="js-select2" name="kabupaten" required>
                                                 <option>Pilih Kabupaten</option>
                                                 <?php if ($kota) : ?>
                                                     <?php foreach ($kota->rajaongkir->results as $kab) : ?>
@@ -363,11 +363,11 @@
                                         </div>
 
                                         <div class="bor8 bg0 m-b-22">
-                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="jalan" placeholder="Jalan">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="jalan" placeholder="Jalan" required>
                                         </div>
 
                                         <div class="bor8 bg0 m-b-22">
-                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="kodePos" placeholder="Kode Pos">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="kodePos" placeholder="Kode Pos" required>
                                         </div>
                                     </div>
                                 </div>
@@ -405,15 +405,14 @@
 
                                 <div class="size-209 p-t-1">
                                     <span class="mtext-110 cl2">
-                                        <?php foreach ($total_harga as $key) : ?><Ri:a></Ri:a>Rp <?php echo number_format($key['total'], 0, ',', ','); ?>
+                                        <?php foreach ($total_harga as $key) : ?><Ri:a></Ri:a>Rp <?php echo number_format(($total = $key['total']), 0, ',', ','); ?>
                                         <?php endforeach ?>
                                     </span>
                                 </div>
                             </div>
 
-                            <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                                Checkout
-                            </button>
+                            <input type="hidden" name="total" value="<?php echo $total ?>">
+                            <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" type="submit" name="pilih">Checkout</button>
                         </form>
 
                     </div>

@@ -8,16 +8,24 @@ class c_payment extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_payment');
+
+        if (!$this->session->userdata('id_pembeli')) {
+            redirect(base_url('Auth/'));
+        }
     }
 
     public function index()
     {
+        $id_user =   $this->session->userdata('id_pembeli');
+
+        $data['tagihan'] = $this->m_payment->get_tagihan($id_user);
         // Tampilkan form pembayaran
-        $this->load->view('V_payment/v_payment');
+        $this->load->view('V_payment/v_payment', $data);
     }
 
     public function save_payment()
     {
+
         // Proses penyimpanan pembayaran
         $data = array(
             'tgl_pembayaran' => date('Y-m-d H:i:s', strtotime($this->input->post('tgl_pembayaran'))),
@@ -42,6 +50,27 @@ class c_payment extends CI_Controller
         $this->session->set_flashdata('success', 'Data pembayaran berhasil disimpan');
 
         // Redirect ke halaman home
-        redirect('c_payment/index');
+        $this->load->view('View File', $data, FALSE);
+    }
+
+    public function payment()
+    {
+        // $id_tagihan =  $this->input->post('tagihan');
+
+        // $this->m_payment->update_tagihan($id_tagihan, $new_jumlah);
+
+        $this->sharedVariable = $this->input->post('total');
+        $this->paymentt();
+    }
+
+    public function paymentt()
+    {
+        $id_user =   $this->session->userdata('id_pembeli');
+
+        $data['tagihan'] = $this->m_payment->get_tagihan($id_user);
+        $data['total'] = $this->sharedVariable;
+
+        // $this->load->view('v_temp', $data);
+        $this->load->view('v_payment/v_bayar', $data);
     }
 }

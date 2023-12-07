@@ -188,32 +188,6 @@
 					<i class="zmdi zmdi-close"></i>
 				</div>
 			</div>
-			<!-- <?php foreach ($cart as $key) : ?>
-				<tr class="table_row">
-					<td class="column-1">
-						<div class="how-itemcart1">
-							<img src="../asset/images/<?php echo $key['foto_produk'] ?>" alt="IMG">
-						</div>
-					</td>
-					<td class="column-2"><?php echo $key['nama_produk'] ?></td>
-					<td class="column-3">Rp<?php echo $key['harga'] ?> </td>
-					<td class="column-4">
-						<div class="wrap-num-product flex-w m-l-auto m-r-0">
-							<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-								<i class="fs-16 zmdi zmdi-minus"></i>
-							</div>
-
-							<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="<?php echo $key['jumlah'] ?>">
-
-							<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-								<i class="fs-16 zmdi zmdi-plus"></i>
-							</div>
-						</div>
-					</td>
-					<td class="column-5">Rp<?php echo ($key['jumlah'] * $key['harga']) ?> </td>
-				</tr>
-			<?php endforeach ?> -->
-
 			<div class="header-cart-content flex-w js-pscroll">
 				<ul class="header-cart-wrapitem w-full">
 					<?php foreach ($cart as $key) : ?>
@@ -228,7 +202,7 @@
 								</a>
 
 								<span class="header-cart-item-info">
-									1 x Rp<?php echo $key['harga'] ?>
+									<?php echo $key['total'] ?> x Rp<?php echo $key['harga'] ?>
 								</span>
 								<button class="js-hapus flex-c-m stext-100 cl0 size-100 bg5 bor2 hov-btn1 p-lr-15 trans-04 lebar" data-id-keranjang="<?php echo $key['id_keranjang'] ?>">Hapus</button>
 
@@ -241,7 +215,7 @@
 				<div class="w-full">
 					<?php foreach ($total_harga as $key) : ?>
 						<div class="header-cart-total w-full p-tb-40">
-							Total: Rp<?php echo $key['total'] ?>
+							Total: Rp<?php echo number_format($key['total']) ?>
 						</div>
 					<?php endforeach ?>
 

@@ -12,13 +12,17 @@ class c_order extends CI_Controller
         $this->load->model('m_cart');
         $this->load->model('m_produk');
         $this->load->model('m_home');
+        $this->load->model('m_payment');
+
+        if (!$this->session->userdata('id_pembeli')) {
+            redirect(base_url('Auth/'));
+        }
     }
 
     public $api_key = "b0dd9be02367ed05907fafd02e6846dc";
 
     public function index()
     {
-
         $id_user =   $this->session->userdata('id_pembeli');
         $data = array(
             'cart' => $this->m_cart->cart($id_user),
@@ -78,7 +82,7 @@ class c_order extends CI_Controller
         } else {
             $data['kota'] = json_decode($response);
         }
-        //print_r($data['provinsi']);
+        // print_r($data['kota']);
         // $this->load->view('v_temp', $data);
 
 
@@ -87,22 +91,20 @@ class c_order extends CI_Controller
 
     public function tagihan()
     {
-        // $add = array(
-        //     'negara' => 'Indonesia',
-        //     'provinsi' => $this->input->post('provinsi'),
-        //     'kabupaten' => $this->input->post('kabupaten'),
-        //     'kecamatan' => $this->input->post('kabupaten'),
-        //     'jalan' => $this->input->post('jalan'),
-        //     'kode_pos' => $this->input->post('kodePos'),
-        //     'id_pembeli' => $this->session->userdata('id_pembeli')
-        // );
-        // $this->db->insert('tb_alamat', $add);
+        $add = array(
+            'tgl_tagihan' => date('Y-m-d'),
+            'jumlah_tagihan' => $this->input->post('total'),
+            'id_pembeli' => $this->session->userdata('id_pembeli'),
+            'id_penjual' => '2',
+            'id_produk' => '2',
+        );
+        $this->db->insert('tb_tagihan', $add);
+
         $id_user =   $this->session->userdata('id_pembeli');
         $data = array(
             'cart' => $this->m_cart->cart($id_user),
             'total_harga' => $this->m_home->total_harga($id_user),
             'jumlah_keranjang' => $this->m_home->jumlah_keranjang($id_user),
-
         );
 
         $data['provinsi'] = $this->input->post('provinsi');
@@ -118,7 +120,7 @@ class c_order extends CI_Controller
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "origin=17&destination=" . $kabupaten . "&weight=2000&courier=jne",
+            CURLOPT_POSTFIELDS => "origin=128&destination=" . $kabupaten . "&weight=2000&courier=jne",
             CURLOPT_HTTPHEADER => array(
                 "content-type: application/x-www-form-urlencoded",
                 "key: " . $this->api_key,
