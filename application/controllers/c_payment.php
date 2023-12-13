@@ -8,6 +8,7 @@ class c_payment extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_payment');
+        $this->load->model('m_cart');
 
         if (!$this->session->userdata('id_pembeli')) {
             redirect(base_url('Auth/'));
@@ -55,20 +56,26 @@ class c_payment extends CI_Controller
 
     public function payment()
     {
-        // $id_tagihan =  $this->input->post('tagihan');
+        $add = array(
+            'tgl_tagihan' => date('Y-m-d'),
+            'jumlah_tagihan' => $this->input->post('total'),
+            'id_pembeli' => $this->session->userdata('id_pembeli'),
+            'id_penjual' => '2',
+            'id_produk' => '2',
+        );
+        $this->db->insert('tb_tagihan', $add);
 
-        // $this->m_payment->update_tagihan($id_tagihan, $new_jumlah);
+        $id_pembeli = $this->session->userdata('id_pembeli');
+        $this->m_cart->delete_all_cart($id_pembeli);
 
         $this->sharedVariable = $this->input->post('total');
-        $this->paymentt();
+        $this->tagihan();
     }
 
-    public function paymentt()
+    public function tagihan()
     {
         $id_user =   $this->session->userdata('id_pembeli');
-
         $data['tagihan'] = $this->m_payment->get_tagihan($id_user);
-        $data['total'] = $this->sharedVariable;
 
         // $this->load->view('v_temp', $data);
         $this->load->view('v_payment/v_bayar', $data);

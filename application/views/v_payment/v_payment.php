@@ -79,22 +79,24 @@
                     <!-- Menu desktop -->
                     <div class="menu-desktop">
                         <ul class="main-menu">
-                            <li class="active-menu">
-                                <a href="<?= base_url('c_home/index') ?>">Home</a>
+                            <li>
+                                <a href="<?= base_url('c_guest/') ?>">Home</a>
 
                             </li>
 
                             <li>
-                                <a href="product.html">Shop</a>
+                                <a href="#">Shop</a>
                             </li>
-
-
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="<?= base_url('c_payment/tagihan') ?>">Tagihan</a>
                             </li>
 
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="<?= base_url('c_about/index') ?>">About</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Contact</a>
                             </li>
                         </ul>
                     </div>

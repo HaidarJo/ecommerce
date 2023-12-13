@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <title>Tagihan</title>
+    <title>About</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="<?= base_url('asset'); ?>/images/icons/icon_pasar.png" />
+    <link rel="icon" type="image/png" href="<?= base_url('asset'); ?>/images/icons/favicon.png" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset'); ?>/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -29,11 +29,7 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset'); ?>/css/util.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset'); ?>/css/main.css">
     <!--===============================================================================================-->
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <!--===============================================================================================-->
 </head>
-
 
 <body class="animsition">
 
@@ -49,26 +45,26 @@
                     </div>
 
                     <div class="right-top-bar flex-w h-full">
-                        <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <a href="<?= base_url('asset'); ?>/#" class="flex-c-m trans-04 p-lr-25">
                             Help & FAQs
                         </a>
 
-                        <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <a href="<?= base_url('asset'); ?>/#" class="flex-c-m trans-04 p-lr-25">
                             My Account
                         </a>
 
-                        <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <a href="<?= base_url('asset'); ?>/#" class="flex-c-m trans-04 p-lr-25">
                             EN
                         </a>
 
-                        <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <a href="<?= base_url('asset'); ?>/#" class="flex-c-m trans-04 p-lr-25">
                             USD
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="wrap-menu-desktop">
+            <div class="wrap-menu-desktop how-shadow1">
                 <nav class="limiter-menu-desktop container">
 
                     <!-- Logo desktop -->
@@ -77,23 +73,20 @@
                     </a>
 
                     <!-- Menu desktop -->
-
                     <div class="menu-desktop">
                         <ul class="main-menu">
-                            <li>
-                                <a href="<?= base_url('c_guest/') ?>">Home</a>
+                            <li class="active-menu">
+                                <a href="<?= base_url('c_home/index') ?>">Home</a>
 
                             </li>
 
                             <li>
                                 <a href="#">Shop</a>
                             </li>
-                            <li>
-                                <a href="<?= base_url('c_payment/tagihan') ?>">Tagihan</a>
-                            </li>
+
 
                             <li>
-                                <a href="<?= base_url('c_about/index') ?>">About</a>
+                                <a href="<?= base_url('c_home/index') ?>">About</a>
                             </li>
 
                             <li>
@@ -103,29 +96,18 @@
                     </div>
 
                     <!-- Icon header -->
-                    <!-- Icon header -->
                     <div class="wrap-icon-header flex-w flex-r-m">
                         <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                             <i class="zmdi zmdi-search"></i>
                         </div>
 
-                        <!-- <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?php echo $jumlah_keranjang ?>">
+                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
                             <i class="zmdi zmdi-shopping-cart"></i>
-                        </div> -->
-
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-                            <i class=""></i>
                         </div>
 
-                        <div></div>
-
-                        <a href="<?= base_url('Auth/logout') ?>" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-                            Logout
+                        <a href="<?= base_url('asset'); ?>/#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+                            <i class="zmdi zmdi-favorite-outline"></i>
                         </a>
-
-
-
-
                     </div>
                 </nav>
             </div>
@@ -135,7 +117,7 @@
         <div class="wrap-header-mobile">
             <!-- Logo moblie -->
             <div class="logo-mobile">
-                <a href="index.html"><img src="<?= base_url('asset'); ?>/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+                <a href="<?= base_url('asset'); ?>/index.html"><img src="<?= base_url('asset'); ?>/images/icons/logo-01.png" alt="IMG-LOGO"></a>
             </div>
 
             <!-- Icon header -->
@@ -148,7 +130,7 @@
                     <i class="zmdi zmdi-shopping-cart"></i>
                 </div>
 
-                <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+                <a href="<?= base_url('asset'); ?>/#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
                     <i class="zmdi zmdi-favorite-outline"></i>
                 </a>
             </div>
@@ -173,19 +155,19 @@
 
                 <li>
                     <div class="right-top-bar flex-w h-full">
-                        <a href="#" class="flex-c-m p-lr-10 trans-04">
+                        <a href="<?= base_url('asset'); ?>/#" class="flex-c-m p-lr-10 trans-04">
                             Help & FAQs
                         </a>
 
-                        <a href="#" class="flex-c-m p-lr-10 trans-04">
+                        <a href="<?= base_url('asset'); ?>/#" class="flex-c-m p-lr-10 trans-04">
                             My Account
                         </a>
 
-                        <a href="#" class="flex-c-m p-lr-10 trans-04">
+                        <a href="<?= base_url('asset'); ?>/#" class="flex-c-m p-lr-10 trans-04">
                             EN
                         </a>
 
-                        <a href="#" class="flex-c-m p-lr-10 trans-04">
+                        <a href="<?= base_url('asset'); ?>/#" class="flex-c-m p-lr-10 trans-04">
                             USD
                         </a>
                     </div>
@@ -194,30 +176,35 @@
 
             <ul class="main-menu-m">
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="<?= base_url('asset'); ?>/index.html">Home</a>
+                    <ul class="sub-menu-m">
+                        <li><a href="<?= base_url('asset'); ?>/index.html">Homepage 1</a></li>
+                        <li><a href="<?= base_url('asset'); ?>/home-02.html">Homepage 2</a></li>
+                        <li><a href="<?= base_url('asset'); ?>/home-03.html">Homepage 3</a></li>
+                    </ul>
                     <span class="arrow-main-menu-m">
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </span>
                 </li>
 
                 <li>
-                    <a href="product.html">Shop</a>
+                    <a href="<?= base_url('asset'); ?>/product.html">Shop</a>
                 </li>
 
                 <li>
-                    <a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
+                    <a href="<?= base_url('asset'); ?>/shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
                 </li>
 
                 <li>
-                    <a href="blog.html">Blog</a>
+                    <a href="<?= base_url('asset'); ?>/blog.html">Blog</a>
                 </li>
 
                 <li>
-                    <a href="about.html">About</a>
+                    <a href="<?= base_url('asset'); ?>/about.html">About</a>
                 </li>
 
                 <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="<?= base_url('asset'); ?>/contact.html">Contact</a>
                 </li>
             </ul>
         </div>
@@ -240,187 +227,109 @@
     </header>
 
     <!-- Cart -->
-    <div class="wrap-header-cart js-panel-cart">
-        <div class="s-full js-hide-cart"></div>
 
-        <div class="header-cart flex-col-l p-l-65 p-r-25">
-            <div class="header-cart-title flex-w flex-sb-m p-b-8">
-                <span class="mtext-103 cl2">
-                    Keranjang Anda
-                </span>
 
-                <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-                    <i class="zmdi zmdi-close"></i>
-                </div>
-            </div>
 
-            <div class="header-cart-content flex-w js-pscroll">
-                <ul class="header-cart-wrapitem w-full">
-                    <?php foreach ($cart as $key) : ?>
-                        <li class="header-cart-item flex-w flex-t m-b-12">
-                            <div class="header-cart-item-img">
-                                <img src="<?= base_url('asset'); ?>/images/<?php echo $key['foto_produk'] ?>" alt="IMG">
-                            </div>
+    <!-- Title page -->
+    <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+        <h2 class="ltext-105 cl0 txt-center">
+            About
+        </h2>
+    </section>
 
-                            <div class="header-cart-item-txt p-t-8">
-                                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                    <?php echo $key['nama_produk'] ?>
-                                </a>
 
-                                <span class="header-cart-item-info">
-                                    1 x Rp<?php echo $key['harga'] ?>
-                                </span>
-                            </div>
-                        </li>
-                    <?php endforeach ?>
-
-                </ul>
-
-                <div class="w-full">
-                    <?php foreach ($total_harga as $key) : ?>
-                        <div class="header-cart-total w-full p-tb-40">
-                            Total: Rp<?php echo $key['total'] ?>
-                        </div>
-                    <?php endforeach ?>
-
-                    <div class="header-cart-buttons flex-w w-full">
-                        <a href="<?= base_url('c_cart/index') ?>" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-                            Lihat Keranjang
-                        </a>
-
-                        <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-                            Bayar
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Shoping Cart -->
-    <div class="bg0 p-t-100 p-b-85">
+    <!-- Content page -->
+    <section class="bg0 p-t-75 p-b-120">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-10 col-lg-7 col-xl-20 m-lr-auto m-b-50">
-                    <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-                        <form action="<?= base_url('c_payment/'); ?>" method="post">
-                            <!-- <?php foreach ($cart as $key) : ?>
-                                <input type="hidden" name="total" value="<?php $total ?>">
-                            <?php endforeach ?> -->
-                            <h4 class="mtext-109 cl2 p-b-30">
-                                Bayar Tagihan
-                            </h4>
-                            <div class="flex-w flex-t bor12 ">
-                            </div>
+            <div class="row p-b-148">
+                <div class="col-md-7 col-lg-8">
+                    <div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+                        <h3 class="mtext-111 cl2 p-b-16">
+                            Pasar Seni Sukawati
+                        </h3>
 
-                            <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-                                <div class="size-208 w-full-ssm">
-                                    <span class="stext-110 cl2">
-                                        ID Tagihan:
-                                    </span>
-                                </div>
+                        <p class="mtext-110 cl6 p-b-26">
+                            Pasar Seni Sukawati merupakan Pasar seni tradisional Kabupaten Gianyar terletak di Desa Guwang, Kecamatan Sukawati. Seni lukis dan kerajinan tangan adalah produk khas yang terkenal dari Pasar Seni Sukawati.
+                        </p>
 
-                                <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-                                    <p class="stext-111 cl6 p-t-2">
-                                        <span class="stext-112 cl8">
-                                            <?php $counter = 0; ?>
-                                            <?php foreach ($tagihan as $id) :  ?>
-                                                <?php echo $id['id_tagihan'] ?> <?php $counter++; ?> <?php if ($counter >= 1) break; ?>
-                                            <?php endforeach ?>
-                                        </span>
+                        <p class="mtext-110 cl6 p-b-26">
+                            Produk- produk yang dijual di sini meliputi pakaian tradisional Bali, kerajinan perak dan emas, patung, lukisan, dan berbagai jenis kerajinan tangan lainnya.
+                        </p>
 
-                                    </p>
+                        <p class="stext-113 cl6 p-b-26">
 
+                        </p>
+                    </div>
+                </div>
 
-                                </div>
-                            </div>
-
-                            <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-                                <div class="size-208">
-                                    <span class="stext-110 cl2">
-                                        Nama Bank:
-                                    </span>
-                                </div>
-
-                                <div class="size-208">
-                                    <span class="stext-112 cl8">
-                                        BCA
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-                                <div class="size-208">
-                                    <span class="stext-110 cl2">
-                                        Penerima:
-                                    </span>
-                                </div>
-
-                                <div class="size-208">
-                                    <span class="stext-112 cl8">
-                                        Pasar Seni Sukawati
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-                                <div class="size-208">
-                                    <span class="stext-110 cl2">
-                                        Nomor Rekening:
-                                    </span>
-                                </div>
-
-                                <div class="size-208">
-                                    <span class="stext-110 cl2">
-                                        772456123
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="flex-w flex-t p-t-27 p-b-33">
-                                <div class="size-208">
-                                    <span class="mtext-101 cl2">
-                                        Total:
-                                    </span>
-                                </div>
-
-                                <div class="size-209 p-t-1">
-                                    <span class="mtext-110 cl2">
-                                        Rp<?php $counter = 0; ?>
-                                        <?php foreach ($tagihan as $id) :  ?>
-                                            <?php echo number_format($id['jumlah_tagihan']) ?> <?php $counter++; ?> <?php if ($counter >= 1) break; ?>
-                                        <?php endforeach ?>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-                                <p class="stext-111 cl6 p-t-2">
-                                    <span class="stext-112 cl8">
-                                    </span>
-                                </p>
-                                <p class="stext-113 cl6 p-t-2">
-                                    *Note : Harap lakukan pembayaran sesuai dengan nominal yang tertera.
-                                </p>
-                            </div>
-                            <br>
-                            <br>
-
-                            <button class="flex-c-m stext-101 cl0 size-116 bg1 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                                Upload Bukti Pembayaran
-                            </button>
-                        </form>
-
+                <div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+                    <div class="how-bor1 ">
+                        <div class="hov-img0">
+                            <img src="<?= base_url('asset'); ?>/Pasar-Sukawati-Gianyar-Bali.jpg" alt="IMG">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- ----------------------------------------------------------------------------------- -->
+            <div class="row">
+                <div class="order-md-2 col-md-7 col-lg-8 p-b-30">
+                    <div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
+                        <div class="container">
+                            <h2 class="mtext-111 cl2 p-b-26">CONTACT INFO</h2>
+                            <div class="box">
+                                <div>
+                                    <h3 class="mtext-111 cl1 p-b-5">Address</h3>
+                                    <p class="mtext-110 cl6 p-b-26">Jalan Raya Sukawati, Sukawati, Kabupaten Gianyar, Bali</p>
+                                </div>
+                                <div>
+                                    <h3 class="mtext-111 cl1 p-b-5">Email</h3>
+                                    <p class="mtext-110 cl6 p-b-26">PasarSeniSukawati@gmail.com</p>
+                                </div>
+                                <div>
+                                    <h3 class="mtext-111 cl1 p-b-5">Telp</h3>
+                                    <p class="mtext-110 cl6 p-b-26">0361-1234</p>
+                                </div>
+                                <div>
+                                    <h3 class="mtext-111 cl1 p-b-5">WhatsApp</h3>
+                                    <p class="mtext-110 cl6 p-b-26">081938141797</p>
+                                </div>
+                                <h2 class="mtext-111 cl2 p-b-16">Lokasi</h2>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.9944419194276!2d115.28260549999999!3d-8.596530699999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23e28616c410d%3A0x960eaffe9f543e3c!2sPasar%20Seni%20Sukawati!5e0!3m2!1sid!2sid!4v1702408683368!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
 
-    <!-- ----------------------------------------------------------------------------------- -->
+                        <!-- <div class="row">
+				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
+					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
+						<h3 class="mtext-111 cl2 p-b-16">
+							Our Mission
+						</h3>
 
+						<p class="stext-113 cl6 p-b-26">
+							Mauris non lacinia magna. Sed nec lobortis dolor. Vestibulum rhoncus dignissim risus, sed consectetur erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam maximus mauris sit amet odio convallis, in pharetra magna gravida. Praesent sed nunc fermentum mi molestie tempor. Morbi vitae viverra odio. Pellentesque ac velit egestas, luctus arcu non, laoreet mauris. Sed in ipsum tempor, consequat odio in, porttitor ante. Ut mauris ligula, volutpat in sodales in, porta non odio. Pellentesque tempor urna vitae mi vestibulum, nec venenatis nulla lobortis. Proin at gravida ante. Mauris auctor purus at lacus maximus euismod. Pellentesque vulputate massa ut nisl hendrerit, eget elementum libero iaculis.
+						</p>
 
+						<div class="bor16 p-l-29 p-b-9 m-t-22">
+							<p class="stext-114 cl6 p-r-40 p-b-11">
+								Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.
+							</p>
+
+							<span class="stext-111 cl8">
+								- Steve Job’s 
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
+					<div class="how-bor2">
+						<div class="hov-img0">
+							<img src="<?= base_url('asset'); ?>/images/about-02.jpg" alt="IMG">
+						</div>
+					</div>
+				</div>
+			</div> -->
+                    </div>
+    </section>
 
 
 
@@ -435,25 +344,25 @@
 
                     <ul>
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="<?= base_url('asset'); ?>/#" class="stext-107 cl7 hov-cl1 trans-04">
                                 Women
                             </a>
                         </li>
 
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="<?= base_url('asset'); ?>/#" class="stext-107 cl7 hov-cl1 trans-04">
                                 Men
                             </a>
                         </li>
 
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="<?= base_url('asset'); ?>/#" class="stext-107 cl7 hov-cl1 trans-04">
                                 Shoes
                             </a>
                         </li>
 
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="<?= base_url('asset'); ?>/#" class="stext-107 cl7 hov-cl1 trans-04">
                                 Watches
                             </a>
                         </li>
@@ -467,25 +376,25 @@
 
                     <ul>
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="<?= base_url('asset'); ?>/#" class="stext-107 cl7 hov-cl1 trans-04">
                                 Track Order
                             </a>
                         </li>
 
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="<?= base_url('asset'); ?>/#" class="stext-107 cl7 hov-cl1 trans-04">
                                 Returns
                             </a>
                         </li>
 
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="<?= base_url('asset'); ?>/#" class="stext-107 cl7 hov-cl1 trans-04">
                                 Shipping
                             </a>
                         </li>
 
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="<?= base_url('asset'); ?>/#" class="stext-107 cl7 hov-cl1 trans-04">
                                 FAQs
                             </a>
                         </li>
@@ -502,15 +411,15 @@
                     </p>
 
                     <div class="p-t-27">
-                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <a href="<?= base_url('asset'); ?>/#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
                             <i class="fa fa-facebook"></i>
                         </a>
 
-                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <a href="<?= base_url('asset'); ?>/#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
                             <i class="fa fa-instagram"></i>
                         </a>
 
-                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <a href="<?= base_url('asset'); ?>/#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
                             <i class="fa fa-pinterest-p"></i>
                         </a>
                     </div>
@@ -538,23 +447,23 @@
 
             <div class="p-t-40">
                 <div class="flex-c-m flex-w p-b-18">
-                    <a href="#" class="m-all-1">
+                    <a href="<?= base_url('asset'); ?>/#" class="m-all-1">
                         <img src="<?= base_url('asset'); ?>/images/icons/icon-pay-01.png" alt="ICON-PAY">
                     </a>
 
-                    <a href="#" class="m-all-1">
+                    <a href="<?= base_url('asset'); ?>/#" class="m-all-1">
                         <img src="<?= base_url('asset'); ?>/images/icons/icon-pay-02.png" alt="ICON-PAY">
                     </a>
 
-                    <a href="#" class="m-all-1">
+                    <a href="<?= base_url('asset'); ?>/#" class="m-all-1">
                         <img src="<?= base_url('asset'); ?>/images/icons/icon-pay-03.png" alt="ICON-PAY">
                     </a>
 
-                    <a href="#" class="m-all-1">
+                    <a href="<?= base_url('asset'); ?>/#" class="m-all-1">
                         <img src="<?= base_url('asset'); ?>/images/icons/icon-pay-04.png" alt="ICON-PAY">
                     </a>
 
-                    <a href="#" class="m-all-1">
+                    <a href="<?= base_url('asset'); ?>/#" class="m-all-1">
                         <img src="<?= base_url('asset'); ?>/images/icons/icon-pay-05.png" alt="ICON-PAY">
                     </a>
                 </div>
@@ -563,7 +472,7 @@
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    </script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="<?= base_url('asset'); ?>/https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="<?= base_url('asset'); ?>/https://themewagon.com" target="_blank">ThemeWagon</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
                 </p>
@@ -613,74 +522,6 @@
             $(window).on('resize', function() {
                 ps.update();
             })
-        });
-    </script>
-    <script>
-        $('.js-addcart-detail').each(function() {
-            var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-            $(this).on('click', function() {
-                $.ajax({
-                    url: '<?php echo site_url('c_cart/method'); ?>',
-                    type: 'POST',
-                    data: {
-
-                        <?php foreach ($cart as $key) : ?>
-
-                            'id_penjual': '<?php echo $key['id_penjual'] ?>',
-                            'id_produk': '<?php echo $key['id_produk'] ?>',
-                        <?php endforeach ?>
-                        // 'jumlah': 'jumlah',
-
-                    },
-                    success: function(result) {
-                        setTimeout("location.reload(true);", 700);
-                        // Lakukan sesuatu dengan result jika diperlukan
-                    }
-                });
-                // swal("Produk", "Dimasukan ke keranjang!", "success");
-            });
-        });
-        $('.js-hapus').each(function() {
-            var idKeranjang = $(this).data('id-keranjang');
-            $(this).on('click', function() {
-                $.ajax({
-                    url: '<?php echo site_url('c_cart/hapus_keranjang'); ?>',
-                    type: 'POST',
-                    data: {
-
-                        'id_keranjang': idKeranjang,
-
-                    },
-                    success: function(result) {
-                        // swal("Produk", "Dihapus!", "failed");
-                        setTimeout("location.reload(true);", 10);
-                        // Lakukan sesuatu dengan result jika diperlukan
-                    }
-                });
-                // swal("Produk", "Dimasukan ke keranjang!", "success");
-            });
-        });
-        $('.js-tambah').each(function() {
-            var idKeranjang = $(this).data('id-keranjang');
-            var idPenjual = $(this).data('id-penjual');
-            $(this).on('click', function() {
-                $.ajax({
-                    url: '<?php echo site_url('c_cart/method'); ?>',
-                    type: 'POST',
-                    data: {
-
-                        'id_produk': idKeranjang,
-                        'id_penjual': idPenjual,
-
-                    },
-                    success: function(result) {
-                        // swal("Produk", "Dihapus!", "failed");
-                        setTimeout("location.reload(true);", 50);
-                        // Lakukan sesuatu dengan result jika diperlukan
-                    }
-                });
-                // swal("Produk", "Dimasukan ke keranjang!", "success");
-            });
         });
     </script>
     <!--===============================================================================================-->

@@ -14,6 +14,7 @@ class c_about extends CI_Controller
 
     public function index()
     {
+        $this->load->view('v_about/v_about');
     }
 }
 

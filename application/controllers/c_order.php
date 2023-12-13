@@ -91,14 +91,14 @@ class c_order extends CI_Controller
 
     public function tagihan()
     {
-        $add = array(
-            'tgl_tagihan' => date('Y-m-d'),
-            'jumlah_tagihan' => $this->input->post('total'),
-            'id_pembeli' => $this->session->userdata('id_pembeli'),
-            'id_penjual' => '2',
-            'id_produk' => '2',
-        );
-        $this->db->insert('tb_tagihan', $add);
+        // $add = array(
+        //     'tgl_tagihan' => date('Y-m-d'),
+        //     'jumlah_tagihan' => $this->input->post('total'),
+        //     'id_pembeli' => $this->session->userdata('id_pembeli'),
+        //     'id_penjual' => '2',
+        //     'id_produk' => '2',
+        // );
+        // $this->db->insert('tb_tagihan', $add);
 
         $id_user =   $this->session->userdata('id_pembeli');
         $data = array(

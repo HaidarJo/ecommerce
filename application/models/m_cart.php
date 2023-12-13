@@ -34,6 +34,12 @@ class m_cart extends CI_Model
         return $result;
     }
 
+    function delete_all_cart($id_pembeli)
+    {
+        $this->db->where('id_pembeli', $id_pembeli);
+        $result = $this->db->delete('tb_keranjang');
+        return $result;
+    }
 
 
 

@@ -90,7 +90,7 @@
 
 
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="<?= base_url('c_about/index') ?>">About</a>
                             </li>
 
                             <li>

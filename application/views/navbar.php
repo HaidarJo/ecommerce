@@ -6,13 +6,16 @@
 <!-- Menu desktop -->
 <div class="menu-desktop">
     <ul class="main-menu">
-        <li class="active-menu">
+        <li>
             <a href="<?= base_url('c_guest/') ?>">Home</a>
 
         </li>
 
         <li>
             <a href="product.html">Shop</a>
+        </li>
+        <li>
+            <a href="<?= base_url('c_payment/tagihan') ?>">Tagihan</a>
         </li>
 
         <!-- <li class="label1" data-label1="hot">
@@ -24,7 +27,7 @@
 							</li> -->
 
         <li>
-            <a href="about.html">About</a>
+            <a href="<?= base_url('c_about/index') ?>">About</a>
         </li>
 
         <li>

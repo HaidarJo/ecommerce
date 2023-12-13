@@ -81,28 +81,21 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li class="active-menu">
-								<a href="<?= base_url('c_guest/index') ?>">Home</a>
+								<a href="<?= base_url('c_home/index') ?>">Home</a>
 
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="#">Shop</a>
 							</li>
 
-							<!-- <li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
-							</li> -->
-
-							<!-- <li>
-								<a href="blog.html">Blog</a>
-							</li> -->
 
 							<li>
-								<a href="about.html">About</a>
+								<a href="<?= base_url('c_home/index') ?>">About</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="#">Contact</a>
 							</li>
 						</ul>
 					</div>
