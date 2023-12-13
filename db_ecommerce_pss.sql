@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Nov 2023 pada 09.57
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 8.1.6
+-- Waktu pembuatan: 13 Des 2023 pada 04.39
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `actor` (
   `first_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -43,7 +43,7 @@ CREATE TABLE `actor` (
 CREATE TABLE `melihat` (
   `tb_penjual_id_penjual` int(11) NOT NULL,
   `tb_produk_id_produk` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -54,7 +54,7 @@ CREATE TABLE `melihat` (
 CREATE TABLE `mencari` (
   `tb_pembeli_id_pembeli` int(10) NOT NULL,
   `tb_produk_id_produk1` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,7 @@ CREATE TABLE `mencari` (
 CREATE TABLE `mengelola` (
   `tb_produk_id_produk` int(10) NOT NULL,
   `tb_admin_id_admin` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,7 @@ CREATE TABLE `mengelola` (
 CREATE TABLE `mengisi` (
   `tb_produk_id_produk` int(10) NOT NULL,
   `tb_keranjang_id_keranjang` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,7 @@ CREATE TABLE `mengisi` (
 CREATE TABLE `menyimpan` (
   `tb_transaksi_id_transaksi` int(10) NOT NULL,
   `tb_produk_id_produk` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -100,7 +100,7 @@ CREATE TABLE `tb_admin` (
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_admin`
@@ -124,7 +124,7 @@ CREATE TABLE `tb_alamat` (
   `jalan` varchar(150) NOT NULL,
   `kode_pos` varchar(10) NOT NULL,
   `id_pembeli` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_alamat`
@@ -133,7 +133,8 @@ CREATE TABLE `tb_alamat` (
 INSERT INTO `tb_alamat` (`id_alamat`, `negara`, `provinsi`, `kabupaten`, `kecamatan`, `jalan`, `kode_pos`, `id_pembeli`) VALUES
 (1, 'indonesia', 'bali', 'badung', 'kuta selatan', 'jl pepaya', '08361', 1),
 (2, 'indonesia', 'jakarta', 'jakarta selatan', 'kelapa gading', 'jl mangga', '04985', 2),
-(3, 'indonesia', 'bali', 'denpasar', 'denpasar selatan', 'jl salak', '096954', 3);
+(3, 'indonesia', 'bali', 'denpasar', 'denpasar selatan', 'jl salak', '096954', 3),
+(4, 'Indonesia', '1', '17', '17', 'Jl Kamboja', '80362', 12);
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,7 @@ CREATE TABLE `tb_keranjang` (
   `id_penjual` int(11) NOT NULL,
   `id_produk` int(10) NOT NULL,
   `jumlah` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_keranjang`
@@ -159,9 +160,7 @@ INSERT INTO `tb_keranjang` (`id_keranjang`, `id_pembeli`, `id_penjual`, `id_prod
 (3, 3, 3, 3, 1),
 (16, 1, 1, 1, NULL),
 (34, 15, 2, 2, NULL),
-(36, 12, 1, 1, NULL),
-(41, 12, 3, 3, NULL),
-(42, 12, 2, 2, NULL);
+(68, 12, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -176,7 +175,7 @@ CREATE TABLE `tb_pembatalan` (
   `id_pembeli` int(10) NOT NULL,
   `id_penjual` int(11) NOT NULL,
   `id_produk` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_pembatalan`
@@ -195,17 +194,18 @@ CREATE TABLE `tb_pembayaran` (
   `id_pembayaran` int(10) NOT NULL,
   `tgl_pembayaran` datetime NOT NULL,
   `bukti_pembayaran` varchar(200) NOT NULL,
-  `id_tagihan` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_tagihan` int(11) NOT NULL,
+  `status` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_pembayaran`
 --
 
-INSERT INTO `tb_pembayaran` (`id_pembayaran`, `tgl_pembayaran`, `bukti_pembayaran`, `id_tagihan`) VALUES
-(1, '2023-10-06 09:58:58', 'bukti.jpg', 1),
-(2, '2023-10-16 09:58:58', 'bukti.jpg', 2),
-(3, '2023-10-17 09:58:58', 'bukti.jpg', 3);
+INSERT INTO `tb_pembayaran` (`id_pembayaran`, `tgl_pembayaran`, `bukti_pembayaran`, `id_tagihan`, `status`) VALUES
+(6, '2023-12-07 09:56:00', '6.png', 37, 'sedang diproses'),
+(7, '2023-12-11 15:58:00', 'png te.png', 45, 'Pembayaran Sukses'),
+(8, '2023-12-13 11:32:00', 'te.png', 46, 'sedang diproses');
 
 -- --------------------------------------------------------
 
@@ -221,7 +221,7 @@ CREATE TABLE `tb_pembeli` (
   `gender` enum('male','female','others') NOT NULL,
   `tgl_lahir` date NOT NULL,
   `no_hp` varchar(14) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_pembeli`
@@ -237,7 +237,8 @@ INSERT INTO `tb_pembeli` (`id_pembeli`, `name`, `email`, `password`, `gender`, `
 (29, 'testdbbs', 'testdbbs@gmail.com', 'testdbbs', 'male', '0000-00-00', '555555567'),
 (31, 'testdb', 'testdb', 'testdb', 'male', '0000-00-00', '5555555'),
 (32, 'testdbk', 'testdbk', 'testdbk', 'male', '0000-00-00', '55555559'),
-(33, 'lukisan pantai', 'testdbo', 'testdbo', 'male', '0000-00-00', '55555553');
+(33, 'lukisan pantai', 'testdbo', 'testdbo', 'male', '0000-00-00', '55555553'),
+(36, 'Janu', 'janu@gmail.com', '2d62b0cd5dd2cd79a437dc7475139e4c', 'male', '0000-00-00', '08123456789');
 
 -- --------------------------------------------------------
 
@@ -250,7 +251,7 @@ CREATE TABLE `tb_pengiriman` (
   `nomor_resi` varchar(45) NOT NULL,
   `tgl_pengiriman` date NOT NULL,
   `id_transaksi` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_pengiriman`
@@ -276,7 +277,7 @@ CREATE TABLE `tb_penjual` (
   `nama_bank` varchar(40) NOT NULL,
   `no_rekening` varchar(45) NOT NULL,
   `alamat` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_penjual`
@@ -301,7 +302,7 @@ CREATE TABLE `tb_produk` (
   `harga` int(11) NOT NULL,
   `stok` int(11) NOT NULL,
   `id_penjual` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_produk`
@@ -325,16 +326,17 @@ CREATE TABLE `tb_tagihan` (
   `id_pembeli` int(10) NOT NULL,
   `id_penjual` int(11) NOT NULL,
   `id_produk` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_tagihan`
 --
 
 INSERT INTO `tb_tagihan` (`id_tagihan`, `tgl_tagihan`, `jumlah_tagihan`, `id_pembeli`, `id_penjual`, `id_produk`) VALUES
-(1, '2023-10-04 00:00:00', 500000, 1, 1, 1),
-(2, '2023-10-15 00:00:00', 1000000, 2, 2, 2),
-(3, '2023-10-16 00:00:00', 50000, 3, 3, 3);
+(37, '2023-12-07 00:00:00', 2100000, 12, 2, 2),
+(44, '2023-12-11 00:00:00', 2036000, 12, 2, 2),
+(45, '2023-12-11 00:00:00', 2036000, 12, 2, 2),
+(46, '2023-12-12 00:00:00', 2044000, 12, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -349,7 +351,7 @@ CREATE TABLE `tb_transaksi` (
   `id_pembeli` int(10) NOT NULL,
   `id_penjual` int(11) NOT NULL,
   `id_produk` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_transaksi`
@@ -373,7 +375,7 @@ CREATE TABLE `tb_ulasan` (
   `id_produk` int(10) NOT NULL,
   `id_pembeli` int(10) NOT NULL,
   `id_penjual` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_ulasan`
@@ -511,9 +513,7 @@ ALTER TABLE `tb_produk`
 --
 ALTER TABLE `tb_tagihan`
   ADD PRIMARY KEY (`id_tagihan`),
-  ADD KEY `fk_tb_tagihan_tb_pembeli1_idx` (`id_pembeli`),
-  ADD KEY `fk_tb_tagihan_tb_penjual1_idx` (`id_penjual`),
-  ADD KEY `fk_tb_tagihan_tb_produk1_idx` (`id_produk`);
+  ADD KEY `fk_tb_tagihan_tb_pembeli1_idx` (`id_pembeli`);
 
 --
 -- Indeks untuk tabel `tb_transaksi`
@@ -547,13 +547,13 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT untuk tabel `tb_alamat`
 --
 ALTER TABLE `tb_alamat`
-  MODIFY `id_alamat` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_alamat` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_keranjang`
 --
 ALTER TABLE `tb_keranjang`
-  MODIFY `id_keranjang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_keranjang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pembatalan`
@@ -565,13 +565,13 @@ ALTER TABLE `tb_pembatalan`
 -- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  MODIFY `id_pembayaran` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pembayaran` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pembeli`
 --
 ALTER TABLE `tb_pembeli`
-  MODIFY `id_pembeli` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_pembeli` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pengiriman`
@@ -589,7 +589,7 @@ ALTER TABLE `tb_produk`
 -- AUTO_INCREMENT untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
-  MODIFY `id_tagihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_tagihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_transaksi`
