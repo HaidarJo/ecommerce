@@ -71,38 +71,9 @@
             <div class="wrap-menu-desktop">
                 <nav class="limiter-menu-desktop container">
 
-                    <!-- Logo desktop -->
-                    <a href="<?= base_url('c_guest/') ?>" class="logo">
-                        <img src="<?= base_url('asset'); ?>/images/icons/pasar_transparent.png" alt="IMG-LOGO">
-                    </a>
+                    <!-- Icon Navigasi -->
+                    <?php $this->load->view('navbar'); ?>
 
-                    <!-- Menu desktop -->
-
-                    <div class="menu-desktop">
-                        <ul class="main-menu">
-                            <li>
-                                <a href="<?= base_url('c_guest/') ?>">Home</a>
-
-                            </li>
-
-                            <li>
-                                <a href="#">Shop</a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url('c_payment/tagihan') ?>">Tagihan</a>
-                            </li>
-
-                            <li>
-                                <a href="<?= base_url('c_about/index') ?>">About</a>
-                            </li>
-
-                            <li>
-                                <a href="#">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Icon header -->
                     <!-- Icon header -->
                     <div class="wrap-icon-header flex-w flex-r-m">
                         <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">

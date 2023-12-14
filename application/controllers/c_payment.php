@@ -32,6 +32,7 @@ class c_payment extends CI_Controller
             'tgl_pembayaran' => date('Y-m-d H:i:s', strtotime($this->input->post('tgl_pembayaran'))),
             'id_tagihan' => $this->input->post('id_tagihan'),
             'bukti_pembayaran' => $_FILES['bukti_pembayaran']['name'],
+            'status' => 'Sedang Diproses',
             // Anda dapat menambahkan field lain sesuai kebutuhan
         );
 

@@ -8,12 +8,16 @@
 </head>
 
 <body>
+    <div class="">
 
-    <?php foreach ($tagihan as $id) :  ?>
-        <?php echo $id['id_tagihan'] ?>
-    <?php endforeach ?>
+        <?php $counter = 0; ?>
+        <?php foreach ($cekStatus as $id) :  ?>
+            <?php echo ($id_tagihan = $id['id_tagihan']) ?>
+            <?php echo ($id['status']) ?>
+            <?php $counter++; ?> <?php if ($counter >= 1) break; ?>
+        <?php endforeach ?>
 
-
+    </div>
 
 </body>
 
