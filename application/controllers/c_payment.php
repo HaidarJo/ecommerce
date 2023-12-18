@@ -37,7 +37,7 @@ class c_payment extends CI_Controller
         );
 
         // Unggah bukti pembayaran
-        $config['upload_path'] = './uploads/';
+        $config['upload_path'] = './asset/images/bukti_bayar/';
         $config['allowed_types'] = 'gif|png|jpg|jpeg';
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('bukti_pembayaran')) {
@@ -52,7 +52,8 @@ class c_payment extends CI_Controller
         $this->session->set_flashdata('success', 'Data pembayaran berhasil disimpan');
 
         // Redirect ke halaman home
-        $this->load->view('View File', $data, FALSE);
+        // $this->load->view('View File', $data, FALSE);
+        redirect('c_home');
     }
 
     public function payment()

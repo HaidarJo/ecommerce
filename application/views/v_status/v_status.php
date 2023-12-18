@@ -311,9 +311,14 @@
                                     </div>
 
                                     <div class="size-208">
-                                        <span class="stext-110 cl2 text-capitalize ">
-                                            <?php echo $cek['status'] ?>
-                                        </span>
+                                        <?php if (($cek['status']) == 'Sedang Diproses') { ?>
+                                            <span class="badge bg-primary stext-110  text-capitalize "><i class="bi bi-clock me-1"></i> <?php echo $cek['status'] ?></span>
+                                        <?php } elseif (($cek['status']) == 'Pembayaran Gagal') { ?>
+                                            <span class="badge bg-danger stext-110  text-capitalize"><i class="bi bi-exclamation-triangle me-1"></i> <?php echo $cek['status'] ?></span>
+                                        <?php } else { ?>
+                                            <span class="badge bg-success stext-110 text-capitalize"><i class="bi bi-check-circle me-1"></i> <?php echo $cek['status'] ?></span>
+                                        <?php } ?>
+
                                     </div>
                                 </div>
 
@@ -331,10 +336,17 @@
 
                                 <button class="flex-c-m stext-101 cl0 size-116 bg1 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                                     Refresh
-                                </button>
+                                </button><br>
+
+
                                 <?php $counter++; ?> <?php if ($counter >= 1) break; ?>
                             <?php endforeach ?>
                         </form>
+                        <a href="<?= base_url('c_payment'); ?>" class="stext-107 cl7 hov-cl1 trans-04">
+                            <button class="flex-c-m stext-101 cl0 size-116 bg5 bor14 hov-btn1 p-lr-15 trans-04 pointer">
+                                Upload Ulang Bukti Pembayaran
+                            </button>
+                        </a>
 
                     </div>
                 </div>

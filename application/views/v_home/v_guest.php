@@ -91,12 +91,10 @@
 
 
 							<li>
-								<a href="<?= base_url('c_home/index') ?>">About</a>
+								<a href="<?= base_url('c_about') ?>">About Us</a>
 							</li>
 
-							<li>
-								<a href="#">Contact</a>
-							</li>
+
 						</ul>
 					</div>
 
