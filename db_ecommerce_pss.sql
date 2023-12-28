@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Des 2023 pada 04.39
+-- Waktu pembuatan: 27 Des 2023 pada 03.57
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -159,8 +159,7 @@ INSERT INTO `tb_keranjang` (`id_keranjang`, `id_pembeli`, `id_penjual`, `id_prod
 (2, 1, 2, 2, 1),
 (3, 3, 3, 3, 1),
 (16, 1, 1, 1, NULL),
-(34, 15, 2, 2, NULL),
-(68, 12, 1, 1, NULL);
+(34, 15, 2, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -203,9 +202,10 @@ CREATE TABLE `tb_pembayaran` (
 --
 
 INSERT INTO `tb_pembayaran` (`id_pembayaran`, `tgl_pembayaran`, `bukti_pembayaran`, `id_tagihan`, `status`) VALUES
-(6, '2023-12-07 09:56:00', '6.png', 37, 'sedang diproses'),
-(7, '2023-12-11 15:58:00', 'png te.png', 45, 'Pembayaran Sukses'),
-(8, '2023-12-13 11:32:00', 'te.png', 46, 'sedang diproses');
+(12, '2023-12-16 10:43:00', 'Radiohead_pablohoney_albumart.jpg', 47, 'Pembayaran Sukses'),
+(14, '2023-12-17 12:08:00', 'screenshot20231217.png', 48, 'Pembayaran Gagal'),
+(15, '2023-12-17 12:25:00', 'screenshot202312171.png', 49, 'Pembayaran Sukses'),
+(16, '2023-12-17 13:15:00', 'screenshot202312172.png', 49, 'Pembayaran Sukses');
 
 -- --------------------------------------------------------
 
@@ -252,15 +252,6 @@ CREATE TABLE `tb_pengiriman` (
   `tgl_pengiriman` date NOT NULL,
   `id_transaksi` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data untuk tabel `tb_pengiriman`
---
-
-INSERT INTO `tb_pengiriman` (`id_pengiriman`, `nomor_resi`, `tgl_pengiriman`, `id_transaksi`) VALUES
-(1, '123456', '2023-10-09', 1),
-(2, '123456', '2023-10-18', 2),
-(3, '123456', '2023-10-19', 3);
 
 -- --------------------------------------------------------
 
@@ -316,6 +307,27 @@ INSERT INTO `tb_produk` (`id_produk`, `nama_produk`, `deskripsi_produk`, `foto_p
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_resi`
+--
+
+CREATE TABLE `tb_resi` (
+  `id_resi` int(11) NOT NULL,
+  `tgl_resi` date NOT NULL,
+  `nomor_resi` varchar(20) NOT NULL,
+  `jasa_pengiriman` varchar(40) NOT NULL,
+  `id_tagihan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_resi`
+--
+
+INSERT INTO `tb_resi` (`id_resi`, `tgl_resi`, `nomor_resi`, `jasa_pengiriman`, `id_tagihan`) VALUES
+(1, '2023-12-27', '123456', 'JNE', 47);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_tagihan`
 --
 
@@ -336,7 +348,10 @@ INSERT INTO `tb_tagihan` (`id_tagihan`, `tgl_tagihan`, `jumlah_tagihan`, `id_pem
 (37, '2023-12-07 00:00:00', 2100000, 12, 2, 2),
 (44, '2023-12-11 00:00:00', 2036000, 12, 2, 2),
 (45, '2023-12-11 00:00:00', 2036000, 12, 2, 2),
-(46, '2023-12-12 00:00:00', 2044000, 12, 2, 2);
+(46, '2023-12-12 00:00:00', 2044000, 12, 2, 2),
+(47, '2023-12-16 00:00:00', 536000, 12, 2, 2),
+(48, '2023-12-17 00:00:00', 144000, 12, 2, 2),
+(49, '2023-12-17 00:00:00', 518000, 12, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -509,6 +524,13 @@ ALTER TABLE `tb_produk`
   ADD KEY `fk_tb_produk_tb_penjual1_idx` (`id_penjual`);
 
 --
+-- Indeks untuk tabel `tb_resi`
+--
+ALTER TABLE `tb_resi`
+  ADD PRIMARY KEY (`id_resi`),
+  ADD KEY `fk_tagihan_id` (`id_tagihan`);
+
+--
 -- Indeks untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
@@ -553,7 +575,7 @@ ALTER TABLE `tb_alamat`
 -- AUTO_INCREMENT untuk tabel `tb_keranjang`
 --
 ALTER TABLE `tb_keranjang`
-  MODIFY `id_keranjang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id_keranjang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pembatalan`
@@ -565,7 +587,7 @@ ALTER TABLE `tb_pembatalan`
 -- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  MODIFY `id_pembayaran` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pembayaran` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pembeli`
@@ -586,10 +608,16 @@ ALTER TABLE `tb_produk`
   MODIFY `id_produk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_resi`
+--
+ALTER TABLE `tb_resi`
+  MODIFY `id_resi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
-  MODIFY `id_tagihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_tagihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_transaksi`
@@ -681,6 +709,12 @@ ALTER TABLE `tb_pengiriman`
 --
 ALTER TABLE `tb_produk`
   ADD CONSTRAINT `fk_tb_produk_tb_penjual1` FOREIGN KEY (`id_penjual`) REFERENCES `tb_penjual` (`id_penjual`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_resi`
+--
+ALTER TABLE `tb_resi`
+  ADD CONSTRAINT `fk_tagihan_id` FOREIGN KEY (`id_tagihan`) REFERENCES `tb_tagihan` (`id_tagihan`);
 
 --
 -- Ketidakleluasaan untuk tabel `tb_tagihan`
