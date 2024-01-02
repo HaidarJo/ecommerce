@@ -86,7 +86,7 @@
 							</li>
 
 							<li>
-								<a href="#">Shop</a>
+								<a href="<?= base_url('c_produk/shop') ?>">Shop</a>
 							</li>
 
 

@@ -12,12 +12,36 @@ class c_produk extends CI_Controller
         $this->load->model('m_produk');
         $this->load->model('m_cart');
         $this->load->model('m_home');
+        $this->load->model('m_guest');
     }
 
 
     public function index()
     {
         $this->lihat_produk();
+    }
+    public function shop()
+    {
+        $data = array(
+            'produk' => $this->m_guest->data_product(),
+            'sess' => $this->session->userdata('id_pembeli')
+        );
+        $this->load->view('V_produk/all_produk', $data);
+    }
+
+    function cari_produk()
+    {
+
+        $keyword = $this->input->post('keyword');
+        $data = $this->m_produk->cari_produk($keyword);
+        $data = array(
+            'keyword'    => $keyword,
+            'data'        => $data,
+            'produk' => $this->m_guest->data_product(),
+            'sess' => $this->session->userdata('id_pembeli')
+        );
+
+        $this->load->view('V_produk/cari_produk', $data);
     }
 
     public function lihat_produk()

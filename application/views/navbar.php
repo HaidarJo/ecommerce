@@ -12,14 +12,23 @@
         </li>
 
         <li>
-            <a href="product.html">Shop</a>
+            <a href="<?= base_url('c_produk/shop') ?>">Shop</a>
         </li>
         <li>
-            <a href="<?= base_url('c_payment/tagihan') ?>">Tagihan</a>
+            <a href="#">Pembelian</a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="<?= base_url('c_payment/tagihan') ?>">Tagihan</a>
+                </li>
+                <li>
+                    <a href="<?= base_url('c_status/') ?>">Status Pembayaran</a>
+                </li>
+                <li>
+                    <a href="<?= base_url('c_resi/') ?>">Resi Pengiriman</a>
+                </li>
+            </ul>
         </li>
-        <li>
-            <a href="<?= base_url('c_status/') ?>">Status Pembayaran</a>
-        </li>
+
 
         <!-- <li class="label1" data-label1="hot">
 								<a href="shoping-cart.html">Features</a>

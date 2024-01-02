@@ -205,7 +205,14 @@
 
 						<li class="header-cart-item flex-w flex-t m-b-12">
 							<div class="header-cart-item-img">
-								<img src="<?= base_url('asset'); ?>/images/<?php echo $key['foto_produk'] ?>" alt="IMG">
+								<?php
+								$foto_path = FCPATH . 'asset/images/' . $key['foto_produk'];
+								?>
+								<?php if (file_exists($foto_path)) : ?>
+									<img src="<?= base_url('asset'); ?>/images/<?php echo $key['foto_produk'] ?>" alt="IMG-PRODUCT">
+								<?php else : ?>
+									<img src="http://localhost/pss_penjual/assets/produk/<?php echo $key['foto_produk'] ?>">
+								<?php endif; ?>
 							</div>
 
 							<div class="header-cart-item-txt p-t-8">
@@ -269,18 +276,32 @@
 							<div class="wrap-slick3 flex-sb flex-w">
 								<div class="wrap-slick3-dots"></div>
 								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
-
-								<div class="slick3 gallery-lb">
-									<div class="item-slick3" data-thumb="<?= base_url('asset'); ?>/images/<?php echo $key['foto_produk'] ?>">
-										<div class="wrap-pic-w pos-relative">
-											<img src="<?= base_url('asset'); ?>/images/<?php echo $key['foto_produk'] ?>" alt="IMG-PRODUCT">
-											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="<?= base_url('asset'); ?>/images/<?php echo $key['foto_produk'] ?>">
-												<i class="fa fa-expand"></i>
-											</a>
+								<?php
+								$foto_path = FCPATH . 'asset/images/' . $key['foto_produk'];
+								?>
+								<?php if (file_exists($foto_path)) : ?>
+									<div class="slick3 gallery-lb">
+										<div class="item-slick3" data-thumb="<?= base_url('asset'); ?>/images/<?php echo $key['foto_produk'] ?>">
+											<div class="wrap-pic-w pos-relative">
+												<img src="<?= base_url('asset'); ?>/images/<?php echo $key['foto_produk'] ?>" alt="IMG-PRODUCT">
+												<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="<?= base_url('asset'); ?>/images/<?php echo $key['foto_produk'] ?>">
+													<i class="fa fa-expand"></i>
+												</a>
+											</div>
 										</div>
 									</div>
-
-								</div>
+								<?php else : ?>
+									<div class="slick3 gallery-lb">
+										<div class="item-slick3" data-thumb="http://localhost/pss_penjual/assets/produk/<?php echo $key['foto_produk'] ?>">
+											<div class="wrap-pic-w pos-relative">
+												<img src="http://localhost/pss_penjual/assets/produk/<?php echo $key['foto_produk'] ?>">
+												<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="<?= base_url('asset'); ?>/images/<?php echo $key['foto_produk'] ?>">
+													<i class="fa fa-expand"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>

@@ -239,32 +239,14 @@
                                     <?php echo $key['nomor_resi'] ?>
                                 </a>
 
-                                <span class="header-cart-item-info">
-                                    1 x Rp<?php echo $key['harga'] ?>
-                                </span>
+
                             </div>
                         </li>
                     <?php endforeach ?>
 
                 </ul>
 
-                <div class="w-full">
-                    <?php foreach ($total_harga as $key) : ?>
-                        <div class="header-cart-total w-full p-tb-40">
-                            Total: Rp<?php echo $key['total'] ?>
-                        </div>
-                    <?php endforeach ?>
 
-                    <div class="header-cart-buttons flex-w w-full">
-                        <a href="<?= base_url('c_cart/index') ?>" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-                            Lihat Keranjang
-                        </a>
-
-                        <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-                            Bayar
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -332,14 +314,9 @@
                                             <span class="stext-112 cl8">
                                                 <?php echo $cek['jasa_pengiriman'] ?>
                                             </span>
-
                                         </p>
-
-
                                     </div>
-
                                     <div class="size-208">
-
                                         <!-- <?php if (($cek['status']) == 'Sedang Diproses') { ?>
                                             <span class="badge bg-primary stext-110  text-capitalize "><i class="bi bi-clock me-1"></i> <?php echo $cek['status'] ?></span>
                                         <?php } elseif (($cek['status']) == 'Pembayaran Gagal') { ?>
@@ -347,16 +324,16 @@
                                         <?php } else { ?>
                                             <span class="badge bg-success stext-110 text-capitalize"><i class="bi bi-check-circle me-1"></i> <?php echo $cek['status'] ?></span>
                                         <?php } ?> -->
-
                                     </div>
                                 </div>
-
                                 <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
                                     <p class="stext-111 cl6 p-t-2">
                                         <span class="stext-112 cl8">
                                         </span>
                                     </p>
                                     <p class="stext-113 cl6 p-t-2 ">
+                                        *Note : Proses membutuhkan waktu sekitar 1x24 jam sejak pembayaran sukes. Silahkan hubungi admin apabila terdapat kendala.
+
                                     </p>
                                 </div>
                                 <br>

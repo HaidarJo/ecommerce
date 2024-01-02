@@ -11,7 +11,7 @@ class m_resi extends CI_Model
         INNER JOIN tb_pembeli ON tb_tagihan.id_pembeli = tb_pembeli.id_pembeli LEFT JOIN tb_resi on tb_tagihan.id_tagihan = tb_resi.id_tagihan
         where status = 'pembayaran sukses' && tb_tagihan.id_pembeli = '$id_user'
         group by id
-        order by status desc;
+        order by id desc;
 
         ");
 

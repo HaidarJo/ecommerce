@@ -53,6 +53,19 @@ class m_produk extends CI_Model
 
         return $query->result_array();
     }
+
+    public function cari_produk($keyword)
+    {
+
+        $this->db->select('*');
+        $this->db->from('tb_produk');
+        if (!empty($keyword)) {
+            $this->db->like('nama_produk', $keyword);
+            // $this->db->or_like('isi', $keyword);
+            $this->db->order_by('nama_produk', 'ASC');
+        }
+        return $this->db->get()->result_array();
+    }
 }
 
 /* End of file m_home.php */
